@@ -78,7 +78,7 @@ export default function Play() {
                                             ? isCorrect
                                                 ? 'green'
                                                 : 'red'
-                                            : 'green'
+                                            : ''
                                     }}
                                 >
                                     {option}
