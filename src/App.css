@@ -84,3 +84,6 @@ h2{
   width: 700px;
   border-color: transparent;
 }
+button{
+  cursor: pointer;
+}
