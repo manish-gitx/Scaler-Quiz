@@ -25,8 +25,8 @@ export default function Play() {
     }, [score]);
 
     const handleAnswerOptionClick = (index) => {
-        const correctAnswer = questions[currentQuestion].answer;
-        const isAnswerCorrect = (index + 1) === correctAnswer;
+        const correctAnswerIndex = questions[currentQuestion].answer - 1;
+        const isAnswerCorrect = (index === correctAnswerIndex);
 
         setSelectedOption(index);
         setIsCorrect(isAnswerCorrect);
@@ -74,11 +74,14 @@ export default function Play() {
                                     className="option"
                                     onClick={() => handleAnswerOptionClick(index)}
                                     style={{
-                                        backgroundColor: selectedOption === index
-                                            ? isCorrect
-                                                ? 'green'
-                                                : 'red'
-                                            : ''
+                                        backgroundColor:
+                                            selectedOption === index
+                                                ? isCorrect
+                                                    ? 'green'
+                                                    : 'red'
+                                                : (selectedOption !== null && index === questions[currentQuestion].answer - 1)
+                                                    ? 'green'
+                                                    : ''
                                     }}
                                 >
                                     {option}
